@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Método de cramer</title>
+</head>
+<body>
+	<h1>Método de cramer</h1>
+	<br>
+	<h2>Forma General</h2>
+	<br>
+	<p>a1 x1 + b1 y1=c1</p>
+	<p>a2 x2 + b2 y2=c2</p>
+	<br>
+	<p><h2>Captura a1,b1,c1,a2,b2,c2</h2></p>
+	<br>
+	<input type="text" id="a1" placeholder="a1"> x1+
+	<input type="text" id="b1" placeholder="b1"> y1=
+	<input type="text" id="c1" placeholder="c1">
+	<br>
+	<input type="text" id="a2" placeholder="a2"> x2+
+	<input type="text" id="b2" placeholder="b2"> y2=
+	<input type="text" id="c2" placeholder="c2"><br>
+	<input type="button" value="Resolver" onclick="res()">
+	<br><h1>Resultado</h1>
+	x=<input type="text" id="x" placeholder="x">
+	y=<input type="text" id="y" placeholder="y">
+	<br>
+	<script>
+		function res() {
+			var a1 = parseFloat(document.getElementById("a1").value);
+			var b1 = parseFloat(document.getElementById("b1").value);
+			var c1 = parseFloat(document.getElementById("c1").value);
+			var a2 = parseFloat(document.getElementById("a2").value);
+			var b2 = parseFloat(document.getElementById("b2").value);
+			var c2 = parseFloat(document.getElementById("c2").value);
+			var det = (a1*b2) - (a2*b1);
+			var detx = (c1*b2) - (c2*b1);
+			var dety = (a1*c2) - (a2*c1);
+			if (det!= 0) {
+				var x = detx / det;
+				var y = dety / det;
+				document.getElementById("x").value = x.toFixed(2);
+				document.getElementById("y").value = y.toFixed(2);
+			} else {
+				alert("El sistema no tiene solución única");
+			}
+		}
+	</script>
+</body>
+</html>
